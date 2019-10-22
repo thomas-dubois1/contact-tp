@@ -42,8 +42,7 @@ public class ContactDaoImpl implements IContactDao {
 	
 	@Override
 	public boolean save(Contact contact) {
-		Optional<Contact> foundContact = findWithName(contact.getName());
-		if(!foundContact.isPresent()) {
+		if(!findWithName(name).isPresent()) {
 		 return	contacts.add(contact);
 		}
 		return false;
@@ -51,8 +50,7 @@ public class ContactDaoImpl implements IContactDao {
 
 	@Override
 	public boolean delete(String name) {
-		Optional<Contact> foundContact = findWithName(name);
-		if(!foundContact.isPresent()) {
+		if(!findWithName(name).isPresent()) {
 		 return	contacts.remove(foundContact.get());
 		}
 		return false;
