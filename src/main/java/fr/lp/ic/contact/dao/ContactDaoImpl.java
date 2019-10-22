@@ -42,7 +42,7 @@ public class ContactDaoImpl implements IContactDao {
 	
 	@Override
 	public boolean save(Contact contact) {
-		if(!findWithName(name).isPresent()) {
+		if(!findWithName(contact.getName()).isPresent()) {
 		 return	contacts.add(contact);
 		}
 		return false;
